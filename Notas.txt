@@ -1,0 +1,18 @@
+En la practica del 8/8 de PINN's vimos:
+
+
+- Partiendo de una ecuacion diferncial: x_dot(t) - f(x,t)  = 0 / x(t0) = x0
+
+- La red neuronal es continua y diferenciable
+
+- Para las PINN's se usa reparametrizacion tal que puedo definir una X0 para mantener la condicion inicial (dado que no es algo que pueda aprender el modelo, sino que es una eleccion) y se usa:
+
+x_tilde = x0 + (1-e^-{t-t0}) * x_n
+
+Usamos los residuos como:
+
+Res_i = x_tilde_dot_i - f(x_tilde_i, t_i) y los hago para cada indice i
+
+=> Loss = L = 1/N *  SUMA_i=1^N[Res_i^2]     IMPORTANTE!!!
+
+
